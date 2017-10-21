@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 align="center">Build A Blog</h1>
+
+{% if userList|length == 0 %}
+<p>No posts yet</p>
+{% else %}
+
+<p>{{userList.__dict__}}</p>
+ {% for user in userList %}
+ <div>
+   <h2><a href="/blog?user={{ user.id }}">{{user.username}}</a></h2>
+     <br/>
+   
+ </div>
+ <hr/>
+ {% endfor %}
+{% endif %}
+
+
+        
+{% endblock %}

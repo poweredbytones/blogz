@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 align="center">Build A Blog</h1>
+    
+    {% if blogsbyuser|length == 0 %}
+    <p>No posts yet</p>
+    {% else %}
+
+     {% for blog in blogsbyuser %}
+     <div>
+       <h2><a href="/selected_blog?id={{ blog.id }}">{{blog.title}}</a></h2>
+         <br/>
+       <p>{{blog.content}}</p>
+       <p class="author">written by <a href = "/blog?user={{ blog.id }}" >{{ user.username }}</a></p>
+       <p>{{blog.pubdate}}</p>
+     </div>
+     <hr/>
+     {% endfor %}
+ {% endif %}
+
+
+            
+{% endblock %}
+            
+
+    
+
+    
+

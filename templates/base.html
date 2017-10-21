@@ -28,26 +28,57 @@
                 max-width: 768px;
             }
 
+            
         </style>
     </head>
     <body>
 
         
             <br/>
-            <div id ="menu">
-            <a class="pure-menu-heading" href="/blog">Home</a>
+            <div id ="menu"><br><br>
+            <a class="pure-menu-heading" href="/">Home</a>
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item">     
-                        <a href='/blog' class="pure-menu-link">Main Blog Page</a><br/><br/>
+                        <a href='/blog' class="pure-menu-link">Main Blog Page</a>
                     </li>
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"> 
                         <a href='/newpost' class="pure-menu-link">Make A New Blog Post</a><br/><br/>
                     </li>
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"> 
+                        <a href='/login' class="pure-menu-link">Login</a>
+                        <a href='/logout' class="pure-menu-link">Logout</a>
+                        <a href='/signup' class="pure-menu-link">Signup</a>
+                    </li>
+<br>
+<br>
+<br>
+                    
+                    <ul class="pure-menu-list">
+                        <li class="pure-menu-item"> 
+                            <a href="/blog" class="pure-menu-link">All posts</a>
+                            <a href='/newpost' class="pure-menu-link">New post</a>
+                        </li>
+                
+                
             </div>
         
 
         <div id = "main">
+
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class='error'>
+                  {% for message in messages %}
+                    <li>{{ message }}</li>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+
+              
+
             {% block content %}
             {% endblock %}
         </div>
